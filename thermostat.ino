@@ -58,13 +58,6 @@ void setup() {
   mySwitch.setProtocol(1, 450); // set protocol
   mySwitch.setRepeatTransmit(10); // transmission repetitions
   
-  // test SWITCH
- /*
-   mySwitch.send(1381719, 24); // turnOn
-   delay(2000);
-   mySwitch.send(1381716, 24); // turnOff
-   delay(2000);
-*/
   // Initialize I2C and OLED Display
   Wire.begin();
   tinyOLED.init();  //init OLED display
@@ -135,10 +128,6 @@ void displayInfos() {
 void initScreen() {
   tinyOLED.drawStringXY(0,0, " THERMOSTAT"); 
   showBatterylevel(readVcc());
- /* for(byte row=2; row<8; row++) {	
-    tinyOLED.setXY(0,row);    
-    for(byte col=0; col<128; col++) tinyOLED.sendData(0);
-  }*/
 }
 
 /* ---------- Gestion du boutons ---------- */
@@ -175,8 +164,8 @@ void handleButtonHoldEvents(Button &btn)  {
 /* --------------------------------------------------------- */
 void flashLed(){
     digitalWrite(LED_PIN, LOW);   // turn the LED on (HIGH is the voltage level)
-    delay(100);               // wait for a second
-    digitalWrite(LED_PIN, HIGH);    // turn the LED off by making the voltage LOW
+    delay(100);                   // wait for a second
+    digitalWrite(LED_PIN, HIGH);  // turn the LED off by making the voltage LOW
     delay(100);
 } 
 /* --------------- Acquisition de la température ----------------------------------- */
